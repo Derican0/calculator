@@ -1,0 +1,36 @@
+.container {
+    width: 200px;
+    height: auto;
+    border: 1px solid black;
+}
+
+.screen {
+    width: 180px;
+    height: 50px;
+    margin: 10px;
+    border: 1px solid black;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+.spacing {
+    width: 100px;
+    height: auto;
+}

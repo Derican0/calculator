@@ -74,21 +74,6 @@ digitBtns.forEach((button) => {
     })
 });
 
-document.addEventListener("keydown", function (event) {
-    console.log(event.key);
-    if (!isNaN(event.key)) {
-        const digit = event.key;
-        if (operatorInput === "") {
-            aInput += digit;
-            screen.textContent = aInput;
-        }
-        else {
-            bInput += digit;
-            screen.textContent = bInput;
-        }
-    }
-});
-
 const operatorBtns = document.querySelectorAll('.operator');
 operatorBtns.forEach(button => {
     button.addEventListener("click", () => {
@@ -96,7 +81,6 @@ operatorBtns.forEach(button => {
         if (operatorInput === "") {
             operatorInput = symbol;
             screen.textContent = operatorInput;
-            console.log(operatorInput);
             already_clicked = 0;
         }
         // Otherwise do nothing
@@ -114,6 +98,7 @@ equalBtn.addEventListener("click", () => {
         let result = operate(operatorInput, Number(aInput), Number(bInput));
         result = Math.round(result * 1000000000) / 1000000000;
         screen.textContent = result;
+        console.log(result);
         // Reset inputs
         aInput = result.toString();
         bInput = "";
@@ -146,4 +131,17 @@ deleteBtn.addEventListener("click", () => {
     screen.textContent = "";
 })
 
-
+document.addEventListener("keydown", function (event) {
+    console.log(event.key);
+    if (!isNaN(event.key)) {
+        const digit = event.key;
+        if (operatorInput === "") {
+            aInput += digit;
+            screen.textContent = aInput;
+        }
+        else {
+            bInput += digit;
+            screen.textContent = bInput;
+        }
+    }
+});

@@ -14,8 +14,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b == 0) {
-        // TODO: Handle error
-        return;
+        return "Nice try";
     }
     return a / b;
 }
@@ -96,11 +95,17 @@ equalBtn.addEventListener("click", () => {
     else {
         console.log(`${Number(aInput)} ${Number(bInput)}`);
         let result = operate(operatorInput, Number(aInput), Number(bInput));
-        result = Math.round(result * 1000000000) / 1000000000;
-        screen.textContent = result;
-        console.log(result);
-        // Reset inputs
-        aInput = result.toString();
+        if (isNaN(result)) {
+            screen.textContent = result;
+            aInput = "";
+        }
+        else {
+            result = Math.round(result * 1000000000) / 1000000000;
+            screen.textContent = result;
+            console.log(result);
+            // Reset inputs
+            aInput = result.toString();
+        }
         bInput = "";
         operatorInput = "";
         already_clicked = 0;
